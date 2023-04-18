@@ -35,14 +35,53 @@ namespace Model.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            ////Land
+            //modelBuilder.Entity<Land>().ToTable("Landen");
+            //modelBuilder.Entity<Land>().HasKey(l => l.LandCode);
+            //modelBuilder.Entity<Land>().Property(l => l.LandCode)
+            //    .IsRequired()
+            //    .HasMaxLength(2);
+            //modelBuilder.Entity<Land>().Property(l => l.LandCode)
+            //    .HasMaxLength(3);
+            //modelBuilder.Entity<Land>().Property(l => l.Naam)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
+            //modelBuilder.Entity<Land>()
+            //    .HasIndex(l => l.LandCode)
+            //    .IsUnique();
+
+            ////Stad
+            //modelBuilder.Entity<Stad>().ToTable("Steden");
+            //modelBuilder.Entity<Stad>().HasKey(s => s.StadNr);
+            //modelBuilder.Entity<Stad>().Property(s => s.StadNr)
+            //    .ValueGeneratedOnAdd();
+            //modelBuilder.Entity<Stad>().Property(s => s.Naam)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
+            //modelBuilder.Entity<Stad>().Property(s => s.LandCode)
+            //    .IsRequired()
+            //    .HasMaxLength(2);
+            //modelBuilder.Entity<Stad>()
+            //    .HasOne(s => s.Land)
+            //    .WithMany(l => l.Steden)
+            //    .HasForeignKey(s => s.LandCode);
+
+            ////Taal
+            //modelBuilder.Entity<Taal>().ToTable("Talen");
+            //modelBuilder.Entity<Taal>().HasKey(t => t.TaalCode);
+            //modelBuilder.Entity<Taal>().Property(t => t.TaalCode)
+            //    .IsRequired()
+            //    .HasMaxLength(2);
+            //modelBuilder.Entity<Taal>().Property(t => t.Naam)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
+
             //Land
             modelBuilder.Entity<Land>().ToTable("Landen");
             modelBuilder.Entity<Land>().HasKey(l => l.LandCode);
             modelBuilder.Entity<Land>().Property(l => l.LandCode)
                 .IsRequired()
-                .HasMaxLength(2);
-            modelBuilder.Entity<Land>().Property(l => l.LandCode)
-                .HasMaxLength(3);
+                .HasMaxLength(3); 
             modelBuilder.Entity<Land>().Property(l => l.Naam)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -60,7 +99,7 @@ namespace Model.Entities
                 .HasMaxLength(50);
             modelBuilder.Entity<Stad>().Property(s => s.LandCode)
                 .IsRequired()
-                .HasMaxLength(2);
+                .HasMaxLength(3); 
             modelBuilder.Entity<Stad>()
                 .HasOne(s => s.Land)
                 .WithMany(l => l.Steden)
@@ -75,7 +114,6 @@ namespace Model.Entities
             modelBuilder.Entity<Taal>().Property(t => t.Naam)
                 .IsRequired()
                 .HasMaxLength(50);
-
 
             modelBuilder.Entity<Land>().HasData(
              new Land { LandCode = "BEL", Naam = "België" },
